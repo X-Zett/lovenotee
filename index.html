@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Записка для тебя</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'handwritten': ['Caveat', 'cursive'],
+                        'body': ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'paper': '#fffaf0',
+                        'ink': '#4a413c',
+                        'accent': '#ff8a80',
+                        'accent-dark': '#ff5252',
+                    },
+                    boxShadow: {
+                        'note': '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                background-color: #fbe9e7;
+            }
+        }
+        @layer utilities {
+            .fade-in {
+                animation: fadeIn 0.8s 0.3s ease-in-out forwards;
+                opacity: 0;
+            }
+            @keyframes fadeIn {
+                0% { opacity: 0; transform: translateY(20px); }
+                100% { opacity: 1; transform: translateY(0); }
+            }
+        }
+    </style>
+</head>
+<body class="font-body text-ink antialiased">
+    <main class="relative w-full min-h-screen flex items-center justify-center p-4 overflow-hidden">
+        
+        <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/subtle-white-feathers.png')] opacity-50 -z-10"></div>
+
+        <div id="note-container" class="relative w-full max-w-lg md:max-w-xl h-[600px] md:h-[650px]">
+
+            <section id="page-1" class="page absolute inset-0 bg-paper shadow-note rounded-lg p-8 md:p-12 flex flex-col justify-center items-center text-center transition-all duration-500 opacity-100 z-50 visible" style="transform: rotateZ(0.5deg);">
+                <img src="D:\Projects\Zap\img\Cute kitty holding flower for you ♥.jpg" alt="Sorry" class="absolute top-8 right-8 w-20 h-20 md:w-24 md:h-24 rounded-full shadow-md transform rotate-12">
+                <div class="fade-in w-full">
+                    <h1 class="font-handwritten text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 text-ink">
+                        Моей принцессе,
+                    </h1>
+                    <p class="text-lg md:text-xl max-w-md mx-auto mb-8">
+                        которая заслуживает того, чтобы чувствовать себя счастливой и свободной каждый день.
+                    </p>
+                    <p class="text-base md:text-lg mb-12 italic">
+                        От ее глупого парня😅
+                    </p>
+                    
+                    <button onclick="showPage(2)" class="bg-accent text-white font-semibold py-3 px-10 rounded-full shadow-md hover:bg-accent-dark transition-all">
+                        Открыть
+                    </button>
+                </div>
+            </section>
+
+            <section id="page-2" class="page absolute inset-0 bg-paper shadow-note rounded-lg p-8 md:p-12 flex flex-col justify-center items-center text-center transition-all duration-500 opacity-0 z-10 invisible" style="transform: rotateZ(-1.5deg);">
+                <img src="D:\Projects\Zap\img\sorry dog.jpg" alt="Flower" class="absolute top-10 left-10 w-24 h-24 md:w-28 md:h-28 rounded-full shadow-md transform -rotate-12">
+                <div class="fade-in w-full">                    
+                    <h2 class="font-handwritten text-4xl md:text-5xl text-accent mb-6">Мне очень жаль</h2>
+                    <p class="text-lg md:text-xl leading-relaxed mb-6">
+                        Я поступил глупо, я никогда не хотел тебя обижать. Ты — самое ценное, что у меня есть, и я обещаю становиться лучше для тебя.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
+                        <button onclick="showPage(1)" class="bg-gray-200 text-gray-700 font-semibold py-3 px-8 rounded-full hover:bg-gray-300 transition-all">
+                            &larr; Назад
+                        </button>
+                        <button onclick="showPage(3)" class="bg-accent text-white font-semibold py-3 px-8 rounded-full shadow-md hover:bg-accent-dark transition-all">
+                            Далее &rarr;
+                        </button>
+                    </div>
+                </div>
+                <img src="D:\Projects\Zap\img\sticker.webp" alt="Sorry" class="absolute bottom-8 right-8 w-20 h-20 md:w-24 md:h-24 rounded-full shadow-md transform rotate-12">
+            </section>
+
+            <section id="page-3" class="page absolute inset-0 bg-paper shadow-note rounded-lg p-8 md:p-12 flex flex-col justify-center items-center text-center transition-all duration-500 opacity-0 z-10 invisible" style="transform: rotateZ(1deg);">
+                <img src="D:\Projects\Zap\img\загрузка (1).jpg" alt="Sun" class="absolute top-8 right-8 w-20 h-20 md:w-28 md:h-28 rounded-full shadow-md transform -rotate-0">
+                <div class="fade-in w-full">                    
+                    <h2 class="font-handwritten text-4xl md:text-5xl text-accent-dark mb-6">Просто напомню...</h2>
+                    <p class="text-lg md:text-xl leading-relaxed mb-8">
+                        Для меня самое большое счастье — это когда тебе спокойно и хорошо. Твоя улыбка делает мой мир светлее❤️
+                    </p>
+                    
+                    <div class="mt-8 font-handwritten text-3xl">
+                        <p>С бесконечной любовью</p>
+                        <p>Жандос</p>
+                    </div>
+
+                    <button onclick="showPage(2)" class="mt-12 text-gray-400 hover:text-accent transition-all text-sm underline">
+                        Вернуться назад
+                    </button>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        function showPage(pageNum) {
+            const pages = document.querySelectorAll('.page');
+            
+            pages.forEach(page => {
+                // Скрываем все страницы: убираем видимость, обнуляем z-index
+                page.classList.replace('opacity-100', 'opacity-0');
+                page.classList.replace('z-50', 'z-10');
+                page.classList.replace('visible', 'invisible');
+                page.style.pointerEvents = 'none';
+            });
+
+            const targetPage = document.getElementById('page-' + pageNum);
+            if (targetPage) {
+                // Показываем нужную страницу: делаем видимой, выносим на передний план (z-50)
+                targetPage.classList.replace('opacity-0', 'opacity-100');
+                targetPage.classList.replace('z-10', 'z-50');
+                targetPage.classList.replace('invisible', 'visible');
+                targetPage.style.pointerEvents = 'auto';
+
+                // Сброс анимации текста
+                const content = targetPage.querySelector('.fade-in');
+                if (content) {
+                    content.style.animation = 'none';
+                    content.offsetHeight; 
+                    content.style.animation = null;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
